@@ -10,7 +10,6 @@ Group:          Development/Languages
 License:        BSD
 URL:            http://www.freewisdom.org/projects/python-markdown/
 Source0:        http://pypi.python.org/packages/source/M/%{srcname}/%{srcname}-%{version}.tar.gz
-Source1001: packaging/python-markdown.manifest 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  python-devel
@@ -35,7 +34,6 @@ find markdown -type f -name '*.py' \
 
 
 %build
-cp %{SOURCE1001} .
 %{__python} setup.py build
 
 
@@ -45,7 +43,6 @@ rm -rf %{buildroot}
 
 
 %files
-%manifest python-markdown.manifest
 %{python_sitelib}/*
 %{_bindir}/markdown
 
